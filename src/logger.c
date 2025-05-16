@@ -1,13 +1,35 @@
 #include "logger.h"
 
-static loglevel_t level = NONE;
+static enum loglevel_t level = NONE;
 
-loglevel_t get_loglevel()
+static const char *loglevel_names[] = {
+	"NONE",
+	"FATAL",
+	"ERROR",
+	"DEBUG",
+	"INFO",
+};
+
+
+enum loglevel_t get_loglevel()
 {
 	return level;
 }
 
-void set_loglevel(loglevel_t l)
+void set_loglevel(const char *name)
+{
+	int i;
+
+	for (i = 0; i < sizeof(loglevel_names)/sizeof(loglevel_names[0]); i++) {
+		if (!strncmp(name, loglevel_names[i], 5)) {
+			level = (enum loglevel_t)i;
+			return;
+		}
+	}
+	level = 0;
+}
+
+void set_loglevel_t(enum loglevel_t l)
 {
 	level = l;
 }

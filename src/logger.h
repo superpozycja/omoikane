@@ -2,14 +2,15 @@
 #define LOGGER_H_1e2af3c5
 
 #include <stdio.h>
+#include <string.h>
 
-typedef enum {
+enum loglevel_t {
 	NONE,
 	FATAL,
 	ERROR,
 	DEBUG,
 	INFO
-} loglevel_t;
+};
 
 /* this needs to be a macro because it needs to access __func__ etc */
 #define log(LOGLEVEL, fmt, ...) 						\
@@ -22,7 +23,8 @@ typedef enum {
 		}								\
 	} while (0)
 
-loglevel_t get_loglevel();
-void set_loglevel(loglevel_t l);
+enum loglevel_t get_loglevel();
+void set_loglevel(const char *name);
+void set_loglevel_t(enum loglevel_t l);
 
 #endif
