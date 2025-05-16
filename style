@@ -1,0 +1,17 @@
+				     style
+
+this project's style mirrors the linux kernel style[1], with the following
+distinctions:
+
+- use tabs to match the indentation level, but spaces for alignment:
+
+	if(some_condition) {
+		function_call(some_argument,
+	(tab)	              some_other_argument);
+		--------------
+		^ spaces
+	}
+
+- to be added if anything comes up
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/coding-style.rst
