@@ -18,7 +18,7 @@ enum loglevel_t {
 		if ((LOGLEVEL) <= get_loglevel()				\
 				&& (LOGLEVEL) != NONE) { 			\
 			fprintf(stdout, "%s() (%s:%d): " fmt, __func__,		\
-					__FILE__, __LINE__, __VA_ARGS__);	\
+					__FILE__, __LINE__, ##__VA_ARGS__);	\
 			fprintf(stdout, "\n");					\
 		}								\
 	} while (0)
